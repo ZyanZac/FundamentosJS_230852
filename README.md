@@ -16,7 +16,7 @@ Previo a iniciar el desarrollo de software para web usando el framework de NodeJ
 |3.|Ejercicio 01: Declaración de Variables en JS|6|✅Finalizado|
 |4.|Ejercicio 02: Tipos de Datos(Undefined, Boolean, Number, String, BigInt, Symbol, Null, Function)|10|✅Finalizado|
 |5.|Ejercicio 03: Repaso de Objetos|19|✅Finalizado|
-|6.|Ejercicio 04: Repaso de Arreglos|Indefinido|❇️Activa|
+|6.|Ejercicio 04: Repaso de Arreglos|18|❇️Finalizado|
 
 
 
