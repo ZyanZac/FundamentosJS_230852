@@ -114,3 +114,112 @@ for(let i=0; i<numeroFilas; i++)
 
 
  
+
+console.log("%c5.- Agregar un nuevo elemento a un arreglo (PUSH)", style_console);
+
+let estudiantes=["Gato Gordo", "Miausito", "Gatote", "Miausón"]
+console.log("Los elementos actuales del arreglo son: ")
+console.table(estudiantes);
+console.log("Agregamos a un nuevo estudiante llamado: Gatuno");
+estudiantes.push("Gatuno");
+console.log("Después de agregarla los elementos del arreglo son: ")
+console.table(estudiantes);
+
+console.log("¿Qué pasa con los Mixtos?");
+console.log("El arregloMixto actualmente tiene los siguientes elementos: ");
+console.table(arregloMixto);
+console.log("Agregamos la palabra: \"Hola\", como nuevo elemento");
+arregloMixto.push("Hola");
+console.log("Y también agregamos el número -2354353459036783987465873.2342423897990 siendo éste un BigInt");
+arregloMixto.push(BigInt(-2354353459036783987465873.2342423897990));
+console.log("Después de estas dos operaciones, el arreglo queda con los siguientes elementos:");
+console.table(arregloMixto);
+
+
+
+
+console.log("%c6.- Agregar un nuevo elemento a un arreglo (UNSHIFT) en la posición inicial.", style_console);
+
+console.table(estudiantes);
+console.log("Ahora agregaremos a Gatóm, al comienzo de arreglo.");
+estudiantes.unshift("Gatóm");
+console.log("La lista actual es: ")
+console.table(estudiantes);
+
+
+
+
+console.log("%c7.- Eliminar el elemento de un arreglo en la última posición (POP)", style_console);
+
+console.log("El arreglo tiene los siguientes elementos: ");
+console.table(estudiantes)
+console.log("Para este caso, eliminaremos a Gatuno, en la última posición");
+estudiantes.pop();
+console.log("Después de eliminar el elemento del arreglo quedó de la siguiente manera: ");
+console.table(estudiantes);
+
+
+
+
+console.log("%c8.- Eliminar el elemento de un arreglo en la primera posición (SHIFT)", style_console);
+
+console.log("El arreglo tiene los siguientes elementos: ");
+console.table(estudiantes)
+console.log("Para este caso, eliminaremos a Gatóm, en la última posición");
+estudiantes.shift();
+console.log("Después de eliminar el elemento del arreglo quedó de la siguiente manera: ");
+console.table(estudiantes);
+
+
+
+
+console.log("%c9.- Dividir un arreglo en un arreglo nuevo con posiciones definidas (SPLICE)", style_console);
+
+console.log("El arreglo original tiene los elementos: ")
+console.table(estudiantes)
+console.log("Dividir el arreglo en uno nuevo eliminando ciertos elementos en base a su posición");
+//Cuando la función splice recibe un sólo parámetro eliminará los elementos de esa posición en adelante
+estudiantes.splice(2); //Con dos parámetros se eliminan en inicio y fin
+console.table(estudiantes);
+
+//CUando la función splice recibe dos parámetros, elimina todos los elementos que no estén en ese rango
+
+estudiantes.push("Gatóm")
+estudiantes.push("Miausón")
+estudiantes.push("Gatunote")
+estudiantes.push("Miausote")
+estudiantes.push("Gatomo")
+console.log("Se han agregado 5 nuevos estudiantes, por lo que el arreglo es: ")
+console.table(estudiantes)
+console.log("Ahora ya tenemos los elementos suficientes para aplicar el método splice con dos parámetros que serán: 3, 5");
+estudiantes.splice(3, 2);
+console.log("Resultando en: ");
+console.table(estudiantes);
+
+//Splice sirve también para insertar elementos en posiciones específicas, ahora necesitamos insertar a: "Gatonto" entre "Gato Gordo" y "Miausito"
+console.log("Ahora vamos a insertar a \"Gatonto\" entre los elementos de la posición 0 y 1.")
+estudiantes.splice(1, 0, "Gatonto")
+console.table(estudiantes)
+
+//También splice sirve para reemplazar elementos por otros, en este caso reemplazaremos a "Gato Gordo" por "Gatejo"
+console.log("Ahora vamos a reemplazar a \"Gato Gordo\" por \"Gatejo\".")
+estudiantes.splice(0, 1, "Gatejo")
+console.table(estudiantes);
+
+
+
+
+console.log("%c10.- Métodos para la manipulación de Arreglos INMUTABLES", style_console);
+
+let signosZodiacales=["Aries", "Tauro", "Géminis", "Cáncer", "Leo", "Virgo", "Libra", "Escorpio", "Sagitario", "Capricornio", "Acuario", "Piscis"]
+
+//Desestructuración de Arreglos (Objetos)
+
+let [signo1, ,signo3, , , , signo7, , , , , ] = signosZodiacales;
+console.log(`El primer signo zodiacal es: ${signo1}`)
+console.log(`El primer signo zodiacal es: ${signo3}`)
+console.log(`El primer signo zodiacal es: ${signo7}`)
+
+//Congelamos el arreglo volviéndolo INMUTABLE
+Object.freeze(signosZodiacales)
+
