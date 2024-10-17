@@ -256,6 +256,61 @@ console.log("Imprimimos la estructura y valores del Objeto PEDIDO")
 console.table(Pedido)
 
 //Suponiendo que el usuario ya realizó el pago, el pedido se convertirá en una VENTA que requiere información de ambos objetos
-const Venta=Object.assign(Producto, Pedido); //Puede haber pérdida de datos si hay propiedades con los mismos nombres en los objetos.
+//IMPORTANTE: ASSIGN no sólo permite la fusión de 2 o más objetos, también muta los objetos originales, perdiendo el valor original del ID en este caso.
+//const Venta=Object.assign(Producto, Pedido); //Puede haber pérdida de datos si hay propiedades con los mismos nombres en los objetos.
+let Producto3={... Producto}
+const Venta=Object.assign(Producto3, Pedido)
 console.log("Consultamos este nuevo objeto VENTA");
 console.table(Venta);
+
+
+//Unión de Objetos usando SPREAD OPERATOR para evitar la pérdida de información con objetos que comparten el mismo nombre en sus propiedades
+console.log("%c11.- Unión de Objetos usando el SPREAD OPERATOR (...)", style_console);
+
+//Parchamos el error, reiniciando el valor del producto ID al original
+//Producto.ID=100;
+console.table(Producto)
+console.table(Comprador)
+console.table(Pedido)
+
+//Clonando los datos para no tener pérdida de datos
+const Venta2={
+    producto:{... Producto},
+    comprador:{... Comprador},
+    pedido:{... Pedido}
+}
+
+console.log("Fusionamos los 3 objetos en uno nuevo, sin perdida de información")
+console.log(Venta2)
+console.table(Venta2)
+
+console.log("%c12.- Mutabilidad POST Unión de Objetos", style_console);
+
+//Vamos a verificar´el estatus de mutabilidad de los objetos
+console.log("Vamos a verificar el estatus de mutabilidad del objeto PEDIDO")
+console.log(`¿Está el objeto de Pedido congelado?: ${Object.isFrozen(Pedido)}`);
+console.log(`¿Está el objeto de Pedido sellado?: ${Object.isSealed(Pedido)}`);
+
+console.log("Vamos a verificar el estatus de mutabilidad del objeto COMRPADOR")
+console.log(`¿Está el objeto de Comprador congelado?: ${Object.isFrozen(Comprador)}`);
+console.log(`¿Está el objeto de Comprador sellado?: ${Object.isSealed(Comprador)}`);
+
+console.log("Vamos a verificar el estatus de mutabilidad del objeto PPRODUCTO")
+console.log(`¿Está el objeto de Producto congelado?: ${Object.isFrozen(Producto)}`);
+console.log(`¿Está el objeto de Producto sellado?: ${Object.isSealed(Producto)}`);
+
+//Modificamos la estructura de producto, agregando una nueva propiedad
+Producto['isLegacy']=false; //Un producto de legado ya no se produce, es exclusivo, conforme va pasando el tiempo aumenta su plus valía
+console.log(Producto);
+console.log(Venta2);
+
+
+
+
+
+//Total de Firmas de Tarea: 13=11    - 5+3+5     13    - 5+3+5
+//Total de Firmas Prácticas: 25=20   - 10+8+8+1  27    - 10+6+8+1
+//Al 27 de Septiembre
+
+
+
