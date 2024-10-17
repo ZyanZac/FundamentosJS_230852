@@ -1,4 +1,4 @@
-//
+//Repaso de ciclos y sentencias de control
 
 //Estilización de los mensajes de salida
 const bg="linear-gradient(11deg, rgba(0,199,36,1) 0%, rgba(129,255,26,1) 33%, rgba(191,255,26,1) 86%)";
@@ -135,5 +135,176 @@ let asignaGeneracion=(anioNacimiento)=>{
 }
 
 console.log(`Dado que nací en el año 1999 soy de la generación ${asignaGeneracion(1999)}`)
+
+
+
+console.log("%c4.- Manejo de Excepciones(TRY/CATCH)", style_console);
+
+//En algunas ocasiones existirán errores que no son culpa del programa, sino del usuario, la red, el sistema operativo e incluso de un middleware, pero que sin duda debemos controlar para evitar las fallas de ejecución.
+//Si no lo puede realizar, lo ignora y sigue con el código.
+console.log("Intentamos dividir: 0/10, el resultado es:")
+
+try{ //Intenta
+    let result=0/10; //Dividir 0 entre un entero
+    console.log(result);
+}
+catch(error){
+    console.log("Ocurrió un error: "+error.message);
+}
+
+console.log("Intentamos dividir: 10/0, el resultado es:")
+
+try{ //Intenta
+    let result=10/0; //Dividir un entero entre 0
+    console.log(result);
+}
+catch(error){
+    console.log("Ocurrió un error: "+error.message);
+}
+
+console.log("Intentamos dividir: \"a\"/0, el resultado es:")
+
+try{ //Intenta
+    let result="a"/0; //Dividir una letra entre 0
+    console.log(result);
+}
+catch(error){
+    console.log("Ocurrió un error: "+error.message);
+}
+
+console.log("Intentamos dividir: la variable a/0, el resultado es:")
+
+try{ //Intenta
+    let result=a/0; //Dividir una variable no definida entre 0
+    console.log(result);
+}
+catch(error){
+    console.log("Ocurrió un error: "+error.message);
+}
+
+console.log("Intentamos dividir: el valor de la variable x entre el valor de la variable y, el resultado es:")
+
+try{ //Intenta
+    let x=8, y=2, result=x/y; //dividir dos variables definidas
+    console.log(result);
+}
+catch(error){
+    console.log("Ocurrió un error: "+error.message);
+}
+
+
+
+
+console.log("%c5.- Control de Ciclos (BREAK/CONTINUA)", style_console);
+
+//En algunas ocasiones será importante detener un ciclo de manera abrupta para controlar casos especiales en un ciclo.
+
+console.log("Vamos a contar del 1 al 10...")
+for(let num=1; num<=10; num++){
+    console.log(num);
+}
+
+console.log("Ahora necesitamos que si llega al 7 pare de contar, suponiendo que sólo por hoy es de mala suerte.")
+
+for(let num=1; num<=10; num++){
+    if(num==7){
+        break;
+    } else {
+        console.log(num);
+    }
+}
+
+console.log("Ahora necesitamos que si llega al 7, se salte ese número y continue")
+
+for(let num=1; num<=10; num++){
+    if(num==7){
+        continue;
+    }
+    console.log(num);
+}
+
+
+
+console.log("%c6.- Ciclo Iterativo - (FOR)", style_console);
+
+//Recorre de manera iterativa (i), de incremental o decremental.
+console.log("Los días de la semana en orden ascendente son:")
+let dias=["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+
+for(let i=0; i<dias.length; i++){
+    console.log(dias[i])
+}
+
+console.log("Ahora vamos a imprimir los meses en orden descendente.")
+
+let meses=["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+for(let i=11; i>=0; i--){
+    console.log(meses[i])
+}
+
+
+
+console.log("%c7.- Ciclo Condicionales - (WHILE)", style_console);
+
+//Estos ciclos (BUCLE) dependen de una condición para continuar ejecutándose
+
+let finDeSemana=false;
+let mensaje="";
+let j=0;
+//while(j<dias.length){
+while(j<dias.length){
+    switch(j){ //Usamos 'j' para que coincida con el índice
+        case 0: 
+            finDeSemana=true;
+            mensaje="Mimingooooooo... ZzzzZZZzzZz"
+            break;
+        case 1:
+            finDeSemana=false;
+            mensaje="San Lunes de chambear";
+            break;
+        case 2:
+            finDeSemana=false;
+            mensaje="Segundo día de chamba, a darle...";
+            break;
+        case 3:
+            finDeSemana=false;
+            mensaje="Ombligo de semana";
+            break;
+        case 4:
+            finDeSemana=false;
+            mensaje="Ya casi, ya es juevesito de racismo";
+            break;
+        case 5:
+            finDeSemana=false;
+            mensaje="Es hoy... es hoy...";
+            break;
+        case 6:
+            finDeSemana=true;
+            mensaje="Sábado de chambeación'nt";
+            break;
+    }
+
+    //Imprimir todos los días
+    //console.log(`Día ${j} ${dias[j]}`)
+    //console.log(`Mensaje del día: ${mensaje}`);
+    //j++;
+
+    //Imprimir los días laborales
+    if(!finDeSemana){
+        console.log(`Día ${j} ${dias[j]}`)
+        console.log(`Mensaje del día: ${mensaje}`);
+    }
+    j++;
+
+    //Imprimir fin de semana
+    //if(finDeSemana){
+    //    console.log(`Día ${j} ${dias[j]}`)
+    //    console.log(`Mensaje del día: ${mensaje}`);
+    //}
+    //j++; 
+}
+
+
+
 
 
